@@ -1,0 +1,11 @@
+/* rtl.css */
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
+body.rtl .nav-left { flex-direction: row-reverse; }
+body.rtl .nav-right { flex-direction: row-reverse; }
+body.rtl .card-content { text-align: right; }
+@media (max-width: 768px) {
+  body.rtl h1, body.rtl h2, body.rtl h3, body.rtl p, body.rtl .card-content { text-align: center; }
+}

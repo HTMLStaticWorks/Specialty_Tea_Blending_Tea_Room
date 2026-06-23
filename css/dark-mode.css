@@ -1,0 +1,30 @@
+/* dark-mode.css */
+body.dark-mode {
+  --primary-bg: #191715;
+  --secondary-bg: #24211D;
+  --card-bg: #24211D;
+  --text-primary: #F8F5F1;
+  --text-secondary: #C8BFB5;
+  --border: #3A352F;
+  --aged-tea-leaf: #A8B58A; /* Lighter in dark mode */
+  --hero-overlay-start: rgba(25, 23, 21, 0.75);
+  --hero-overlay-end: rgba(25, 23, 21, 0.95);
+}
+body.dark-mode .navbar {
+  background-color: rgba(25, 23, 21, 0.9);
+}
+body.dark-mode .card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+body.dark-mode .card:hover {
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+}
+body.dark-mode .anim-infusion {
+  background: linear-gradient(270deg, #24211D, #191715, #3A352F);
+}
+
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-secondary:hover {
+  background-color: var(--text-primary);
+  color: var(--primary-bg);
+}

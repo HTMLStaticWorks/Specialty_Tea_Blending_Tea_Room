@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Specialty Tea Blending & Tea Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;540;580&family=Jost:wght@400;450;500;520&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="icon" type="image/svg+xml" href="images/brand_logo.svg">
+</head>
+<body>
+    
+    <main class="auth-main">
+        
+        <div style="position: absolute; top: 1.5rem; right: 1.5rem; display: flex; gap: 1rem; z-index: 10;">
+            <button id="dark-mode-toggle" class="btn btn-secondary btn-icon" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button id="rtl-toggle" class="btn btn-secondary btn-icon" title="Toggle RTL"><i class="fas fa-right-left"></i></button>
+        </div>
+        <div class="auth-card anim-sensory">
+            <a href="index.html" class="auth-brand"><i class="fa-solid fa-leaf" style="margin-right: 8px; color: var(--aged-tea-leaf);"></i>Elysia</a>
+            <h1 class="auth-title">Create Account</h1>
+            <p class="auth-subtitle">Join Elysia and start your sensory journey</p>
+            
+            <form class="auth-form">
+                <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control" placeholder="John">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Doe">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div style="position: relative;">
+                        <input type="password" class="form-control" placeholder="Create password">
+                        <i class="fa-regular fa-eye" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-secondary); cursor: pointer;"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <div style="position: relative;">
+                        <input type="password" class="form-control" placeholder="Repeat password">
+                        <i class="fa-regular fa-eye" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-secondary); cursor: pointer;"></i>
+                    </div>
+                </div>
+                <div class="auth-options" style="margin-bottom: 1rem; justify-content: flex-start;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-secondary); font-size: 0.85rem;">
+                        <input type="checkbox" required> I agree to the <a href="#" class="auth-link" style="font-weight: 400;">Terms and conditions</a>
+                    </label>
+                </div>
+                
+                <button type="button" class="btn btn-primary" style="width: 100%; padding: 1rem; margin-top: 1rem;">Sign Up</button>
+            </form>
+            
+            <div class="auth-divider">Or sign up with</div>
+            
+            <button type="button" class="btn-social">
+                <i class="fab fa-google" style="color: #DB4437;"></i> Google
+            </button>
+            <button type="button" class="btn-social">
+                <i class="fab fa-apple"></i> Apple
+            </button>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-secondary);">
+                Already have an account? <a href="login.html" class="auth-link">Log in</a>
+            </p>
+        </div>
+        
+    </main>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
+

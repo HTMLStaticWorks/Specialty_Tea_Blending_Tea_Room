@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Specialty Tea Blending & Tea Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;540;580&family=Jost:wght@400;450;500;520&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="icon" type="image/svg+xml" href="images/brand_logo.svg">
+</head>
+<body>
+    
+<nav class="navbar">
+    <div class="nav-left">
+        <a href="index.html" class="brand-logo"><i class="fa-solid fa-leaf"></i>Elysia</a>
+    </div>
+    
+    <button id="mobile-menu-btn" class="mobile-menu-btn" title="Open Menu"><i class="fas fa-bars"></i></button>
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    
+    <div class="nav-wrapper" id="nav-wrapper">
+        <div class="nav-menu-header">
+            <span class="brand-logo"><i class="fa-solid fa-leaf"></i>Elysia</span>
+            <button id="mobile-menu-close" class="mobile-menu-close" title="Close Menu"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="home-2.html" class="nav-link">Home 2</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="brewing-guides.html" class="nav-link">Brewing Guides</a>
+            <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-right">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                <button id="rtl-toggle" class="btn btn-secondary btn-icon" title="Toggle RTL"><i class="fas fa-right-left"></i></button>
+                <button id="dark-mode-toggle" class="btn btn-secondary btn-icon" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <a href="shop.html" class="btn btn-secondary">Shop</a>
+                <a href="login.html" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <main class="">
+        
+        <section style="padding: 8rem 2rem 4rem; text-align: center; background-color: var(--secondary-bg);">
+            <h1 class="anim-sensory">Our Story</h1>
+            <p style="max-width: 600px; margin: 1rem auto 0; font-size: 1.125rem;">A legacy of passion, precision, and the relentless pursuit of the perfect cup.</p>
+        </section>
+        
+        <section class="sensory-element" style="padding: 6rem 2rem;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
+                <div><img src="images/about_origin.png" alt="Heritage" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);"></div>
+                <div class="text-center-mobile">
+                    <span class="subheading">Heritage</span>
+                    <h2 style="margin: 1rem 0 1.5rem;">Sourced from the Clouds</h2>
+                    <p style="margin-bottom: 1.5rem;">Our journey began high in the misty peaks of ancient tea gardens. We partner directly with generational farmers who harvest only the finest leaves, ensuring ethical practices and unparalleled quality.</p>
+                    <p style="margin-bottom: 2rem;">These remote, high-altitude environments provide the perfect climate for tea bushes to grow slowly, developing deep, complex flavors that define our exclusive collections.</p>
+                    <div>
+                        <ul style="list-style: none; padding: 0; margin: 0 auto 2.5rem auto; text-align: left; display: inline-flex; flex-direction: column; gap: 0.5rem;">
+                            <li style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: var(--aged-tea-leaf);"></i> <span>Beyond Fair Trade Standards</span></li>
+                            <li style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: var(--aged-tea-leaf);"></i> <span>Preserving Ancient Terroirs</span></li>
+                            <li style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: var(--aged-tea-leaf);"></i> <span>Hand-Picked with Precision</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sensory-element" style="padding: 6rem 2rem; background-color: var(--card-bg);">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
+                <div class="text-center-mobile">
+                    <span class="subheading">Craftsmanship</span>
+                    <h2 style="margin: 1rem 0 1.5rem;">The Art of Blending</h2>
+                    <p style="margin-bottom: 1.5rem;">Our master blenders treat tea making as a high art form. By combining rare botanicals and exotic spices, we create symphonies of flavor that awaken the senses.</p>
+                    <p style="margin-bottom: 2rem;">Every batch undergoes a rigorous tasting process to ensure the aromatic profile remains consistent, perfectly balancing boldness with subtlety. We take pride in our innovative techniques that respect classic traditions while introducing modern flair.</p>
+                    <a href="shop.html" class="btn btn-secondary">Discover Our Blends</a>
+                </div>
+                <div>
+                    <img src="images/about_crafting.png" alt="Craftsmanship" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </section>
+
+        <section class="sensory-element" style="padding: 8rem 2rem; background-color: var(--primary-bg);">
+            <div style="text-align: center; margin-bottom: 5rem;">
+                <span class="subheading">Our Journey</span>
+                <h2 style="margin: 1rem 0 1.5rem;">A Legacy in the Making</h2>
+                <p style="max-width: 600px; margin: 0 auto;">From our humble beginnings to a global standard of tea luxury.</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item anim-sensory">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--aged-tea-leaf); margin-bottom: 0.5rem; font-size: 2.5rem;">1995</h3>
+                        <h4 style="margin-bottom: 1rem;">The First Harvest</h4>
+                        <p>Our founder discovered a forgotten mountain tea garden, harvesting the first leaves that would become our signature blend. The dedication to quality was born.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-empty"></div>
+                </div>
+
+                <div class="timeline-item reversed anim-sensory" style="animation-delay: 0.2s;">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--aged-tea-leaf); margin-bottom: 0.5rem; font-size: 2.5rem;">2008</h3>
+                        <h4 style="margin-bottom: 1rem;">The Art of Blending</h4>
+                        <p>We established our first artisan blending facility, allowing our master blenders to experiment with rare botanicals from around the world to craft exquisite flavors.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-empty"></div>
+                </div>
+
+                <div class="timeline-item anim-sensory" style="animation-delay: 0.4s;">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--aged-tea-leaf); margin-bottom: 0.5rem; font-size: 2.5rem;">2026</h3>
+                        <h4 style="margin-bottom: 1rem;">Global Luxury</h4>
+                        <p>Opening our flagship boutique in Botanical City, setting a new global standard for the luxury tea experience, blending tradition with modern elegance.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-empty"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sensory-element" style="padding: 6rem 2rem;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
+                <div><img src="images/about_tea_room.png" alt="Tea Room" style="width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);"></div>
+                <div class="text-center-mobile">
+                    <span class="subheading">Sanctuary</span>
+                    <h2 style="margin: 1rem 0 1.5rem;">Our Flagship Lounge</h2>
+                    <p style="margin-bottom: 1.5rem;">Step into our five-star boutique tea room. Designed with minimalist luxury, it is a haven for those who seek mindfulness and community over a steaming cup.</p>
+                    <p style="margin-bottom: 2rem;">Featuring dedicated tasting rooms, bespoke sensory experiences, and a serene atmosphere, our flagship lounge is the physical embodiment of the Elysia philosophy—a space where time slows down.</p>
+                    <a href="services.html" class="btn btn-primary">Book an Experience</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sensory-element" style="padding: 6rem 2rem; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/about_sustainability.png'); background-size: cover; background-position: center; background-attachment: fixed; color: #FFF; text-align: center;">
+            <div style="max-width: 800px; margin: 4rem auto;">
+                <span class="subheading" style="color: var(--matcha-mist);">Eco-Conscious</span>
+                <h2 style="color: #FFF; margin: 1rem 0 1.5rem;">Rooted In Nature</h2>
+                <p style="color: rgba(255,255,255,0.9); margin-bottom: 2.5rem; font-size: 1.125rem;">We pledge 100% compostable packaging and zero-waste operations. The earth gives us tea; we give back to the earth.</p>
+            </div>
+        </section>
+        
+    </main>
+    
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div>
+                <div style="margin-bottom: 1rem;"><a href="index.html" class="brand-logo"><i class="fa-solid fa-leaf"></i>Elysia</a></div>
+                <p class="footer-desc">Experience the impossible. Premium luxury tea room and specialty blending facilities designed for relaxation, thrills, and unforgettable sensory moments.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="pricing.html">Pricing & Packages</a></li>
+                    <li><a href="about.html">About Us Detail</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="shop.html">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Specialty Tea Lane, Botanical City, BC 90210</li>
+                    <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> hello@elysia-tea.com</li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4 class="footer-heading">Newsletter</h4>
+                <p>Subscribe for exclusive offers and tea tasting tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Email address">
+                    <button type="button" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Elysia Specialty Tea. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions | Specialty Tea Blending & Tea Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;540;580&family=Jost:wght@400;450;500;520&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="icon" type="image/svg+xml" href="images/brand_logo.svg">
+</head>
+<body>
+    
+<nav class="navbar">
+    <div class="nav-left">
+        <a href="index.html" class="brand-logo"><i class="fa-solid fa-leaf"></i>Elysia</a>
+    </div>
+    
+    <button id="mobile-menu-btn" class="mobile-menu-btn" title="Open Menu"><i class="fas fa-bars"></i></button>
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    
+    <div class="nav-wrapper" id="nav-wrapper">
+        <div class="nav-menu-header">
+            <span class="brand-logo"><i class="fa-solid fa-leaf"></i>Elysia</span>
+            <button id="mobile-menu-close" class="mobile-menu-close" title="Close Menu"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="home-2.html" class="nav-link">Home 2</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="brewing-guides.html" class="nav-link">Brewing Guides</a>
+            <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-right">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                <button id="rtl-toggle" class="btn btn-secondary btn-icon" title="Toggle RTL"><i class="fas fa-right-left"></i></button>
+                <button id="dark-mode-toggle" class="btn btn-secondary btn-icon" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <a href="shop.html" class="btn btn-secondary">Shop</a>
+                <a href="login.html" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <main class="">
+        
+        <section style="padding: 8rem 2rem 4rem; text-align: center; background-color: var(--secondary-bg);">
+            <h1 class="anim-sensory">The Elysia Club</h1>
+            <p style="max-width: 600px; margin: 1rem auto 0; font-size: 1.125rem;">An exclusive monthly journey through the world's most luxurious tea gardens.</p>
+        </section>
+        
+        <!-- Pricing Section -->
+        <section class="sensory-element" style="padding: 8rem 2rem; background-color: var(--card-bg);">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 5rem;">
+                    <span class="subheading">Memberships</span>
+                    <h2 style="margin: 1rem 0 1.5rem;">Select Your Tier</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">Choose the level of luxury that suits your palate and lifestyle.</p>
+                </div>
+                
+                <div class="card-grid cols-3 pricing-grid">
+                    <!-- Pricing Card 1 -->
+                    <div class="card" style="padding: 2rem; text-align: center; border: 1px solid var(--border); box-shadow: none;">
+                        <h3 style="color: var(--aged-tea-leaf); margin-bottom: 1rem; font-size: 1.5rem;">Explorer</h3>
+                        <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-primary);">$45<span style="font-size: 1rem; color: var(--text-secondary);">/mo</span></div>
+                        <p style="margin-bottom: 2rem; color: var(--text-secondary);">Perfect for those beginning their tea journey.</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; text-align: left; display: grid; gap: 1rem;">
+                            <li><i class="fas fa-check" style="color: var(--aged-tea-leaf); margin-right: 10px;"></i>2 Seasonal Teas</li>
+                            <li><i class="fas fa-check" style="color: var(--aged-tea-leaf); margin-right: 10px;"></i>Digital Tasting Notes</li>
+                            <li><i class="fas fa-check" style="color: var(--aged-tea-leaf); margin-right: 10px;"></i>Standard Shipping</li>
+                            <li><i class="fas fa-times" style="color: var(--text-secondary); margin-right: 10px; opacity: 0.5;"></i><span style="color: var(--text-secondary); text-decoration: line-through; opacity: 0.5;">Virtual Sessions</span></li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary" style="width: 100%;">Choose Explorer</a>
+                    </div>
+
+                    <!-- Pricing Card 2 (Most Popular) -->
+                    <div class="card card-featured" style="padding: 3rem 2rem; text-align: center; border: 2px solid var(--saffron-infusion); position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.15); overflow: visible;">
+                        <div style="position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background-color: var(--saffron-infusion); color: var(--primary-bg); padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; font-size: 0.875rem; white-space: nowrap; z-index: 10;">Most Popular</div>
+                        <h3 style="color: var(--aged-tea-leaf); margin-bottom: 1rem; font-size: 1.5rem;">Connoisseur</h3>
+                        <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-primary);">$85<span style="font-size: 1rem; color: var(--text-secondary);">/mo</span></div>
+                        <p style="margin-bottom: 2rem; color: var(--text-secondary);">Our curated signature experience.</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; text-align: left; display: grid; gap: 1rem;">
+                            <li><i class="fas fa-check" style="color: var(--saffron-infusion); margin-right: 10px;"></i>4 Rare Micro-Batch Teas</li>
+                            <li><i class="fas fa-check" style="color: var(--saffron-infusion); margin-right: 10px;"></i>Physical Tasting Cards</li>
+                            <li><i class="fas fa-check" style="color: var(--saffron-infusion); margin-right: 10px;"></i>Priority Free Shipping</li>
+                            <li><i class="fas fa-check" style="color: var(--saffron-infusion); margin-right: 10px;"></i>Monthly Virtual Sommelier</li>
+                            <li><i class="fas fa-check" style="color: var(--saffron-infusion); margin-right: 10px;"></i>10% Off Retail Purchases</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Choose Connoisseur</a>
+                    </div>
+
+                    <!-- Pricing Card 3 -->
+                    <div class="card" style="padding: 2rem; text-align: center; border: 1px solid var(--border); box-shadow: none;">
+                        <h3 style="color: var(--aged-tea-leaf); margin-bottom: 1rem; font-size: 1.5rem;">Collector</h3>
+                        <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-primary);">$150<span style="font-size: 1rem; color: var(--text-secondary);">/mo</span></div>
+                        <p style="margin-bottom: 2rem; color: var(--text-secondary);">For the ultimate luxury tea aficionado.</p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; text-align: left; display: grid; gap: 1rem;">
+                            <li><i class="fas fa-check" style="color: var(--aged-tea-leaf); margin-right: 10px;"></i>6 Ultra-Rare Reserves</li>
+                            <li><i class="fas fa-check" style="color: var(--aged-tea-leaf); margin-right: 10px;"></i>Exclusive Artisan Teaware</li>
+                            <li><i class="fas fa-check" style="color: var(--aged-tea-leaf); margin-right: 10px;"></i>Priority Free Shipping</li>
+                            <li><i class="fas fa-check" style="color: var(--aged-tea-leaf); margin-right: 10px;"></i>1-on-1 Blending Session</li>
+                            <li><i class="fas fa-check" style="color: var(--aged-tea-leaf); margin-right: 10px;"></i>25% Off Retail Purchases</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary" style="width: 100%;">Choose Collector</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <style>
+        .bento-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+        .bento-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+        }
+        .bento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.1);
+        }
+        .bento-img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .bento-content {
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        @media (min-width: 900px) {
+            .bento-grid {
+                grid-template-columns: 1.2fr 1fr;
+                grid-template-rows: auto auto;
+            }
+            .bento-item-1 {
+                grid-row: 1 / span 2;
+                flex-direction: column;
+            }
+            .bento-card.horizontal {
+                flex-direction: row;
+            }
+            .bento-card.horizontal.rev {
+                flex-direction: row-reverse;
+            }
+            .bento-card.horizontal .bento-content {
+                flex: 1.2;
+            }
+            .bento-card.horizontal .img-container {
+                flex: 1;
+            }
+        }
+        @media (max-width: 899px) {
+            .bento-card {
+                flex-direction: column !important;
+            }
+            .bento-content {
+                text-align: center;
+            }
+            .bento-card .img-container {
+                width: 100%;
+            }
+        }
+        </style>
+        <section class="sensory-element" style="padding: 8rem 2rem; background-color: var(--primary-bg);">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <span class="subheading">Beyond the Cup</span>
+                    <h2 style="margin: 1rem 0 1.5rem;">The Elysia Club Experience</h2>
+                    <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);">More than just tea delivered to your door. It is an ongoing education in luxury, flavor, and community.</p>
+                </div>
+                
+                <div class="bento-grid">
+                    <!-- Bento Card 1: The Offering (Tall) -->
+                    <div class="bento-card bento-item-1">
+                        <div class="img-container" style="flex: 1;">
+                            <img class="bento-img" src="images/tea_subscription.png" style="height: 100%; min-height: 400px; max-height: 500px;" alt="Subscription Box">
+                        </div>
+                        <div class="bento-content" style="background-image: linear-gradient(to top, var(--card-bg), rgba(26,21,18,0.95)); border-top: 1px solid var(--border);">
+                            <span class="subheading" style="color: var(--aged-tea-leaf);">The Offering</span>
+                            <h3 style="margin: 1rem 0 1rem; font-size: 2rem;">Curated Monthly Deliveries</h3>
+                            <p style="color: var(--text-secondary); font-size: 1.125rem;">Each month, receive a hand-selected box featuring three rare, seasonal teas. Complete with detailed tasting notes, water chemistry recommendations, and precise brewing profiles curated by our master blenders.</p>
+                        </div>
+                    </div>
+
+                    <!-- Bento Card 2: Perks (Wide/Top) -->
+                    <div class="bento-card horizontal">
+                        <div class="bento-content">
+                            <span class="subheading" style="color: var(--saffron-infusion);">Perks</span>
+                            <h3 style="margin: 1rem 0 1rem; font-size: 1.5rem;">Member Exclusives</h3>
+                            <p style="color: var(--text-secondary);">Subscribers gain first access to micro-batch releases and limited edition blends before they are made available to the public.</p>
+                        </div>
+                        <div class="img-container">
+                            <img class="bento-img" src="images/tea_product_4.jpg" style="height: 100%; min-height: 250px;" alt="Exclusive Tea">
+                        </div>
+                    </div>
+
+                    <!-- Bento Card 3: VIP (Wide/Bottom) -->
+                    <div class="bento-card horizontal rev">
+                        <div class="bento-content">
+                            <span class="subheading" style="color: var(--saffron-infusion);">VIP</span>
+                            <h3 style="margin: 1rem 0 1rem; font-size: 1.5rem;">Virtual Sommelier</h3>
+                            <p style="color: var(--text-secondary);">Every delivery includes an invitation to a private online masterclass where our head blender walks you through that month's flavor profiles.</p>
+                        </div>
+                        <div class="img-container">
+                            <img class="bento-img" src="images/subs_tea_1.png" style="height: 100%; min-height: 250px;" alt="VIP Status">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <style>
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1rem;
+        }
+        .faq-item summary {
+            padding: 1.5rem 0;
+            font-size: 1.25rem;
+            font-weight: 500;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-primary);
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--saffron-infusion);
+            transition: transform 0.3s ease;
+        }
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+        .faq-item p {
+            padding-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        </style>
+        <section class="sensory-element" style="padding: 6rem 2rem; max-width: 800px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span class="subheading">Inquiries</span>
+                <h2 style="margin: 1rem 0 1.5rem;">Frequently Asked Questions</h2>
+            </div>
+            
+            <details class="faq-item">
+                <summary>How are the monthly teas selected?</summary>
+                <p>Our master blenders and sommeliers work months in advance to curate selections based on seasonal harvests, ensuring you receive the freshest and most vibrant profiles available.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I pause or cancel my subscription?</summary>
+                <p>Absolutely. You can pause, skip a month, or cancel your subscription at any time through your member dashboard with zero hidden fees or obligations.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Are the virtual sommelier sessions recorded?</summary>
+                <p>Yes. If you miss the live interactive session, a high-quality recording will be available in your member portal the next day so you can taste along at your own pace.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do you ship internationally?</summary>
+                <p>Yes, we ship our luxury tea boxes worldwide. However, shipping times and priority delivery perks may vary depending on your specific region.</p>
+            </details>
+        </section>
+
+        <section class="sensory-element" style="padding: 6rem 2rem; background-image: linear-gradient(rgba(26,21,18,0.85), rgba(26,21,18,0.95)), url('images/subs_hero.png'); background-size: cover; background-position: center; background-attachment: fixed; color: #FFF; text-align: center;">
+            <div style="max-width: 800px; margin: 4rem auto;">
+                <span class="subheading" style="color: var(--saffron-infusion);">Membership</span>
+                <h2 style="color: #FFF; margin: 1rem 0 1.5rem;">Begin Your Journey</h2>
+                <p style="color: rgba(255,255,255,0.9); margin-bottom: 2.5rem; font-size: 1.125rem;">Unlock the world of ultra-premium tea. Cancel anytime, but we know you won't want to.</p>
+                <a href="#" class="btn btn-primary">Subscribe Now</a>
+            </div>
+        </section>
+        
+    </main>
+    
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div>
+                <div style="margin-bottom: 1rem;"><a href="index.html" class="brand-logo"><i class="fa-solid fa-leaf"></i>Elysia</a></div>
+                <p class="footer-desc">Experience the impossible. Premium luxury tea room and specialty blending facilities designed for relaxation, thrills, and unforgettable sensory moments.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="pricing.html">Pricing & Packages</a></li>
+                    <li><a href="about.html">About Us Detail</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="shop.html">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Specialty Tea Lane, Botanical City, BC 90210</li>
+                    <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> hello@elysia-tea.com</li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4 class="footer-heading">Newsletter</h4>
+                <p>Subscribe for exclusive offers and tea tasting tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Email address">
+                    <button type="button" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Elysia Specialty Tea. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+

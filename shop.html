@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Specialty Tea Blending & Tea Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;540;580&family=Jost:wght@400;450;500;520&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="icon" type="image/svg+xml" href="images/brand_logo.svg">
+</head>
+<body>
+    
+<nav class="navbar">
+    <div class="nav-left">
+        <a href="index.html" class="brand-logo"><i class="fa-solid fa-leaf"></i>Elysia</a>
+    </div>
+    
+    <button id="mobile-menu-btn" class="mobile-menu-btn" title="Open Menu"><i class="fas fa-bars"></i></button>
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    
+    <div class="nav-wrapper" id="nav-wrapper">
+        <div class="nav-menu-header">
+            <span class="brand-logo"><i class="fa-solid fa-leaf"></i>Elysia</span>
+            <button id="mobile-menu-close" class="mobile-menu-close" title="Close Menu"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="home-2.html" class="nav-link">Home 2</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="brewing-guides.html" class="nav-link">Brewing Guides</a>
+            <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-right">
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                <a href="cart.html" class="nav-link" style="color: var(--text-primary);"><i class="fas fa-shopping-cart"></i></a>
+                <button id="rtl-toggle" class="btn btn-secondary btn-icon" title="Toggle RTL"><i class="fas fa-right-left"></i></button>
+                <button id="dark-mode-toggle" class="btn btn-secondary btn-icon" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <a href="shop.html" class="btn btn-secondary">Shop</a>
+                <a href="login.html" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <main class="">
+        
+        <style>
+            .shop-container {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 4rem 2rem;
+                display: grid;
+                grid-template-columns: 280px 1fr;
+                gap: 3rem;
+            }
+            .shop-filters {
+                position: sticky;
+                top: 100px;
+                align-self: start;
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                padding: 2rem;
+                border-radius: 8px;
+                height: max-content;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            }
+            .filter-section {
+                margin-bottom: 2rem;
+            }
+            .filter-title {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+                color: var(--text-primary);
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 0.5rem;
+            }
+            .filter-label {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+                color: var(--text-secondary);
+                cursor: pointer;
+            }
+            .shop-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+            .mobile-filter-btn {
+                display: none;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                padding: 1rem 1.5rem;
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                color: var(--text-primary);
+                border-radius: 4px;
+                font-family: var(--font-secondary);
+                font-size: 1rem;
+                cursor: pointer;
+                margin-bottom: 2rem;
+                width: 100%;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .filter-overlay {
+                display: none;
+                position: fixed;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 9998;
+                backdrop-filter: blur(5px);
+            }
+            .close-filter {
+                display: none;
+                background: var(--primary-bg);
+                border: 1px solid var(--border);
+                color: var(--text-primary);
+                width: 36px; height: 36px;
+                border-radius: 50%;
+                font-size: 1.25rem;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                cursor: pointer;
+                align-items: center; justify-content: center;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            
+            @media (max-width: 1024px) {
+                .shop-container {
+                    grid-template-columns: 1fr;
+                    padding: 2rem 2rem;
+                }
+                .mobile-filter-btn {
+                    display: flex;
+                }
+                .shop-filters {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0.9);
+                    opacity: 0;
+                    visibility: hidden;
+                    width: 90%;
+                    max-width: 400px;
+                    height: auto;
+                    max-height: 70vh;
+                    box-sizing: border-box;
+                    z-index: 9999;
+                    border-radius: 12px;
+                    overflow-y: auto;
+                    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    margin: 0;
+                    padding: 2.5rem 2rem;
+                }
+                .shop-filters.active {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 1;
+                    visibility: visible;
+                }
+                .close-filter {
+                    display: flex;
+                }
+                .shop-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            
+            @media (max-width: 600px) {
+                .shop-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+        
+        <section style="padding: 8rem 2rem 4rem; text-align: center; background-color: var(--secondary-bg);">
+            <h1 class="anim-sensory">The Collection</h1>
+            <p style="max-width: 600px; margin: 1rem auto 0; font-size: 1.125rem;">Discover our masterfully curated selection of rare and artisanal teas.</p>
+        </section>
+        
+        <section style="background-color: var(--primary-bg);">
+            <div class="shop-container">
+                <!-- Mobile Filter Toggle -->
+                <div style="grid-column: 1 / -1;">
+                    <button class="mobile-filter-btn" id="open-filters">
+                        <i class="fas fa-sliders-h"></i> Show Filters
+                    </button>
+                </div>
+                
+                <!-- Filter Overlay -->
+                <div class="filter-overlay" id="filter-overlay"></div>
+                
+                <!-- Filters Sidebar -->
+                <aside class="shop-filters" id="shop-filters">
+                    <button class="close-filter" id="close-filters"><i class="fas fa-times"></i></button>
+                    <h2 style="margin-bottom: 2rem; color: var(--text-primary); font-family: var(--font-primary);">Filters</h2>
+                    
+                    <div class="filter-section">
+                        <h3 class="filter-title">Tea Type</h3>
+                        <label class="filter-label"><input type="checkbox"> Black Tea</label>
+                        <label class="filter-label"><input type="checkbox"> Green Tea</label>
+                        <label class="filter-label"><input type="checkbox"> Oolong Tea</label>
+                        <label class="filter-label"><input type="checkbox"> White Tea</label>
+                        <label class="filter-label"><input type="checkbox"> Pu'erh</label>
+                        <label class="filter-label"><input type="checkbox"> Herbal & Botanical</label>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h3 class="filter-title">Tasting Notes</h3>
+                        <label class="filter-label"><input type="checkbox"> Floral & Fragrant</label>
+                        <label class="filter-label"><input type="checkbox"> Earthy & Woody</label>
+                        <label class="filter-label"><input type="checkbox"> Malty & Rich</label>
+                        <label class="filter-label"><input type="checkbox"> Fruity & Sweet</label>
+                        <label class="filter-label"><input type="checkbox"> Roasted & Nutty</label>
+                    </div>
+                    
+                    <div class="filter-section">
+                        <h3 class="filter-title">Price Range</h3>
+                        <label class="filter-label"><input type="checkbox"> Under $50</label>
+                        <label class="filter-label"><input type="checkbox"> $50 - $100</label>
+                        <label class="filter-label"><input type="checkbox"> $100 - $200</label>
+                        <label class="filter-label"><input type="checkbox"> Over $200</label>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Apply Filters</button>
+                </aside>
+                
+                <!-- Products Grid -->
+                <main>
+                    <div class="shop-grid">
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/tea_product_box_black.png" alt="Midnight Reserve Oolong" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Midnight Reserve Oolong</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$45.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/tea_product_tin_gold.png" alt="Imperial Golden Needle" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Imperial Golden Needle</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$50.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/tea_product_pouch.png" alt="Cloud Peak White Tea" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Cloud Peak White Tea</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$55.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/tea_product_matcha.png" alt="Ceremonial Grade Matcha" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Ceremonial Grade Matcha</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$60.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/shop_tea_pouch_2.png" alt="Wild Jasmine Pearl" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Wild Jasmine Pearl</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$65.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_1.jpg" alt="Aged Pu'erh Vintage" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Aged Pu'erh Vintage</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$70.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_2.jpg" alt="Royal Earl Grey" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Royal Earl Grey</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$48.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_3.jpg" alt="Emerald Spring Sencha" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Emerald Spring Sencha</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$52.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_4.jpg" alt="Golden Yunnan Black" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Golden Yunnan Black</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$65.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_5.jpg" alt="Silver Needle White" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Silver Needle White</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$80.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_6.jpg" alt="Dragon Well Green" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Dragon Well Green</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$55.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_7.jpg" alt="Darjeeling First Flush" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Darjeeling First Flush</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$60.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_8.jpg" alt="Assam Heritage Blend" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Assam Heritage Blend</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$45.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_9.jpg" alt="Lapsang Souchong" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Lapsang Souchong</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$42.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_10.jpg" alt="Ceylon Highland Gold" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Ceylon Highland Gold</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$58.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_11.jpg" alt="Matcha Reserve" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Matcha Reserve</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$85.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_12.jpg" alt="Jasmine Silver Tip" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Jasmine Silver Tip</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$75.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="card" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); transition: transform 0.3s ease;">
+                  <div style="position: relative; padding-top: 100%; overflow: hidden; background: #fff;">
+                      <img src="images/stock_tea_13.jpg" alt="Oolong Winter Sprout" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  </div>
+                  <div style="padding: 1.5rem; text-align: center; flex: 1; display: flex; flex-direction: column;">
+                      <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--saffron-infusion); margin-bottom: 0.5rem;">Signature Blend</span>
+                      <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">Oolong Winter Sprout</h3>
+                      <div style="margin-top: auto;">
+                          <div style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem;">$65.00</div>
+                          <button class="btn btn-secondary" style="width: 100%; padding: 0.75rem;">Add to Cart</button>
+                      </div>
+                  </div>
+              </div>
+
+                      </div>
+                  </main>
+            </div>
+        </section>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const openFilters = document.getElementById('open-filters');
+                const closeFilters = document.getElementById('close-filters');
+                const shopFilters = document.getElementById('shop-filters');
+                const filterOverlay = document.getElementById('filter-overlay');
+                
+                if (openFilters && shopFilters && filterOverlay) {
+                    openFilters.addEventListener('click', () => {
+                        shopFilters.classList.add('active');
+                        filterOverlay.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    });
+                    
+                    const closeFilterMenu = () => {
+                        shopFilters.classList.remove('active');
+                        filterOverlay.style.display = 'none';
+                        document.body.style.overflow = '';
+                    };
+                    
+                    closeFilters.addEventListener('click', closeFilterMenu);
+                    filterOverlay.addEventListener('click', closeFilterMenu);
+                }
+            });
+        </script>
+        
+    </main>
+    
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div>
+                <div style="margin-bottom: 1rem;"><a href="index.html" class="brand-logo"><i class="fa-solid fa-leaf"></i>Elysia</a></div>
+                <p class="footer-desc">Experience the impossible. Premium luxury tea room and specialty blending facilities designed for relaxation, thrills, and unforgettable sensory moments.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="pricing.html">Pricing & Packages</a></li>
+                    <li><a href="about.html">About Us Detail</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="shop.html">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-heading">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Specialty Tea Lane, Botanical City, BC 90210</li>
+                    <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> hello@elysia-tea.com</li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4 class="footer-heading">Newsletter</h4>
+                <p>Subscribe for exclusive offers and tea tasting tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Email address">
+                    <button type="button" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Elysia Specialty Tea. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
